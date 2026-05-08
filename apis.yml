@@ -3,7 +3,9 @@ url: https://raw.githubusercontent.com/api-evangelist/bland-ai/refs/heads/main/a
 name: Bland AI
 x-type: company
 description: >-
-  Bland AI provides programmable AI phone agents capable of natural-sounding human conversations at scale. APIs cover call orchestration, agents, batches, voice cloning, and SMS.
+  Bland AI is an enterprise-grade conversational voice AI platform for inbound and outbound
+  phone agents. The Bland REST API covers calls, pathways (conversation graphs), voices and
+  voice cloning, personas, tools, knowledge bases, dynamic data, transfer lists, and webhooks.
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 tags:
   - AI
@@ -14,10 +16,36 @@ tags:
 created: '2026-05-08'
 modified: '2026-05-08'
 specificationVersion: '0.19'
-apis: []
+apis:
+  - aid: bland-ai:platform
+    name: Bland AI Platform API
+    description: >-
+      REST API for sending and managing AI phone calls, pathways (conversation flows), voices
+      and voice clones, personas, tools, knowledge bases, transfer lists, and analytics. Auth
+      is bearer token; base URL is https://api.bland.ai.
+    image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    humanURL: https://docs.bland.ai/
+    baseURL: https://api.bland.ai
+    tags:
+      - Voice
+      - Agents
+      - Calls
+      - Pathways
+      - Voice Cloning
+    properties:
+      - type: Documentation
+        url: https://docs.bland.ai/
+      - type: SignUp
+        url: https://app.bland.ai/
+      - type: Pricing
+        url: https://www.bland.ai/pricing
+      - type: LLMsTxt
+        url: https://docs.bland.ai/llms.txt
 common:
   - type: Website
     url: https://www.bland.ai/
+  - type: Documentation
+    url: https://docs.bland.ai/
   - type: Plans
     url: plans/bland-ai-plans-pricing.yml
   - type: RateLimits

@@ -5,7 +5,7 @@ provider: Bland AI
 providerId: bland-ai
 created: '2026-05-08'
 modified: '2026-05-08'
-reconciled: false
+reconciled: true
 tags:
 - AI
 - Voice
@@ -15,10 +15,15 @@ tags:
 - FinOps
 - Cost Management
 - FOCUS
-description: FOCUS-aligned FinOps placeholder for Bland AI. Pipeline will replace with real billing details.
-notes: Initial scaffold — billing model has not yet been reconciled.
+description: >-
+  FOCUS-aligned FinOps view of Bland AI. Bland bills a flat per-minute talk-time rate that
+  bundles LLM, STT, TTS, and telephony costs, plus an optional monthly platform fee for paid
+  tiers and per-minute transfer fees. Voice clones, knowledge bases, and concurrent call slots
+  are capacity entitlements gated by plan.
+notes: Bland's "flat per-minute" model removes the multi-vendor cost stack typical of voice AI; FinOps focus shifts to plan-tier sizing.
 sources:
-- https://www.bland.ai/
+- https://www.bland.ai/pricing
+- https://docs.bland.ai/
 - https://focus.finops.org/focus-specification/v1-3/
 alignedWith:
   framework: FinOps Foundation Framework
@@ -29,7 +34,7 @@ alignedWith:
 publisherName: Bland AI
 serviceCategory: AI
 billingModel:
-  pricingCategory: To Be Reconciled
+  pricingCategory: Subscription + Usage (Per Minute)
   billingFrequency: Monthly
   billingCurrency: USD
   chargeCategories:
@@ -37,7 +42,7 @@ billingModel:
   - Purchase
   - Adjustment
 focusColumns:
-  ServiceName: Bland AI
+  ServiceName: Bland AI Voice Agent Platform
   ServiceCategory: AI
   ProviderName: Bland AI
   PublisherName: Bland AI
@@ -45,22 +50,36 @@ focusColumns:
   BillingCurrency: USD
   ChargeCategory: Usage
 meters:
-- name: api_usage
-  description: Catch-all meter pending reconciliation.
-  unit: varies
+- name: talk_time_minutes
+  description: Per-minute charge for AI voice agent talk time (bundles LLM/STT/TTS/telephony).
+  unit: minute
   aggregation: sum
   dimensions:
   - account
-  - resource
+  - call_id
+- name: transfer_minutes
+  description: Per-minute charge applied while a call is transferred to a human agent.
+  unit: minute
+  aggregation: sum
+  dimensions:
+  - account
+  - call_id
+- name: platform_fee
+  description: Monthly platform fee for paid tiers (Build, Scale).
+  unit: month
+  aggregation: sum
+  dimensions:
+  - account
+  - plan
 principles:
 - name: Visibility
-  description: Pull provider invoices or usage exports until a self-serve usage feed is documented.
+  description: Use Bland's call analytics dashboard plus monthly invoice line items.
 - name: Allocation
-  description: Tag invoice line items to consuming business units in your FinOps store.
+  description: Tag pathways and phone numbers to business units to allocate per-minute spend.
 - name: Optimization
-  description: Levers depend on the provider's billing model; review at renewal once reconciled.
+  description: Right-size the plan tier (Start vs Build vs Scale) based on actual concurrency and daily call volume.
 - name: Accountability
-  description: Assign a contract owner to review billing against negotiated terms.
+  description: Assign a plan owner to monitor monthly burn against tier caps and trigger upgrades.
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com

@@ -5,7 +5,7 @@ provider: Bland AI
 providerId: bland-ai
 created: '2026-05-08'
 modified: '2026-05-08'
-reconciled: false
+reconciled: true
 tags:
 - AI
 - Voice
@@ -15,21 +15,64 @@ tags:
 - Rate Limiting
 - Quotas
 - Throttling
-description: Placeholder rate-limit artifact for Bland AI. Replace with real limits once researched.
-notes: Initial scaffold — limits have not yet been reconciled.
+description: >-
+  Bland AI rate-limits voice agent usage primarily through plan-based concurrent call caps and
+  daily call quotas. HTTP rate limits beyond standard 429 are not publicly documented;
+  enterprise contracts can lift concurrency caps.
+notes: Concurrency and daily call caps are documented per plan; enterprise plans remove caps.
 sources:
-- https://www.bland.ai/
+- https://www.bland.ai/pricing
+- https://docs.bland.ai/
 responseCodes:
   throttled: 429
 limits:
-- name: Default
+- name: Concurrent Calls (Start)
   scope: account
-  metric: varies
-  limit: see provider documentation
-  notes: Pending reconciliation.
+  metric: concurrent_calls
+  limit: 10
+  notes: Start tier concurrency cap.
+- name: Concurrent Calls (Build)
+  scope: account
+  metric: concurrent_calls
+  limit: 50
+  notes: Build tier concurrency cap.
+- name: Concurrent Calls (Scale)
+  scope: account
+  metric: concurrent_calls
+  limit: 100
+  notes: Scale tier concurrency cap.
+- name: Daily Calls (Start)
+  scope: account
+  metric: calls_per_day
+  limit: 100
+  notes: Start tier daily call cap.
+- name: Daily Calls (Build)
+  scope: account
+  metric: calls_per_day
+  limit: 2000
+  notes: Build tier daily call cap.
+- name: Daily Calls (Scale)
+  scope: account
+  metric: calls_per_day
+  limit: 5000
+  notes: Scale tier daily call cap.
+- name: Voice Clones (Start)
+  scope: account
+  metric: voice_clones
+  limit: 1
+- name: Voice Clones (Build)
+  scope: account
+  metric: voice_clones
+  limit: 5
+- name: Voice Clones (Scale)
+  scope: account
+  metric: voice_clones
+  limit: 15
 policies:
 - name: Backoff Strategy
   description: Clients should implement exponential backoff with jitter and honor any Retry-After header.
+- name: Concurrency Planning
+  description: Plan to upgrade tiers when concurrent call demand approaches the documented cap.
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com

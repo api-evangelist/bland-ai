@@ -5,7 +5,7 @@ provider: Bland AI
 providerId: bland-ai
 created: '2026-05-08'
 modified: '2026-05-08'
-reconciled: false
+reconciled: true
 tags:
 - AI
 - Voice
@@ -13,29 +13,162 @@ tags:
 - Phone
 - Realtime
 - Plans
-description: Placeholder plans/pricing artifact for Bland AI. Replace with real published pricing once
-  the pipeline researches the provider's plans page.
-notes: Initial scaffold — plans/pricing have not yet been reconciled.
+description: >-
+  Bland AI offers four published tiers — Start, Build, Scale, and Enterprise — combining flat
+  per-minute talk-time pricing with monthly platform fees, and bundling LLM + STT + TTS +
+  telephony into the per-minute rate. Free trial credits and a free inbound number are
+  provided for new accounts.
+notes: Reconciled from Bland AI's public pricing page (May 2026).
 sources:
-- https://www.bland.ai/
+- https://www.bland.ai/pricing
 plans:
-- id: bland-ai-default
-  name: To Be Reconciled
-  type: enterprise
-  description: Initial scaffold; replace with provider plan tiers once pricing is reconciled.
+- id: bland-ai-start
+  name: Start
+  type: usage
+  description: Per-minute pricing for individuals with no monthly platform fee.
   entries:
-  - label: API Access
-    name: api_access
-    type: flat
-    metric: varies
+  - label: Talk Time
+    name: talk_time
+    type: per_minute
+    metric: minute
     limit: -1
     timeFrame: usage
     geo: global
     unit: 1
-    price: see https://www.bland.ai/
+    price: 0.14 USD/min
+    userMultiplied: false
+  - label: Transfer
+    name: transfer
+    type: per_minute
+    metric: minute
+    limit: -1
+    timeFrame: usage
+    geo: global
+    unit: 1
+    price: 0.05 USD/min
     userMultiplied: false
   elements:
-  - name: Pending Reconciliation
+  - name: 10 concurrent calls
+  - name: 100 calls/day
+  - name: 1 voice clone
+  - name: 10 knowledge bases
+- id: bland-ai-build
+  name: Build
+  type: subscription
+  description: Team tier with reduced per-minute price and platform fee.
+  entries:
+  - label: Platform Fee
+    name: platform_fee
+    type: flat
+    metric: month
+    limit: 1
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: 299 USD/month
+    userMultiplied: false
+  - label: Talk Time
+    name: talk_time
+    type: per_minute
+    metric: minute
+    limit: -1
+    timeFrame: usage
+    geo: global
+    unit: 1
+    price: 0.12 USD/min
+    userMultiplied: false
+  - label: Transfer
+    name: transfer
+    type: per_minute
+    metric: minute
+    limit: -1
+    timeFrame: usage
+    geo: global
+    unit: 1
+    price: 0.04 USD/min
+    userMultiplied: false
+  elements:
+  - name: 50 concurrent calls
+  - name: 2,000 calls/day
+  - name: 5 voice clones
+  - name: 50 knowledge bases
+- id: bland-ai-scale
+  name: Scale
+  type: subscription
+  description: Most popular tier with higher concurrency and lower per-minute rate.
+  entries:
+  - label: Platform Fee
+    name: platform_fee
+    type: flat
+    metric: month
+    limit: 1
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: 499 USD/month
+    userMultiplied: false
+  - label: Talk Time
+    name: talk_time
+    type: per_minute
+    metric: minute
+    limit: -1
+    timeFrame: usage
+    geo: global
+    unit: 1
+    price: 0.11 USD/min
+    userMultiplied: false
+  - label: Transfer
+    name: transfer
+    type: per_minute
+    metric: minute
+    limit: -1
+    timeFrame: usage
+    geo: global
+    unit: 1
+    price: 0.04 USD/min
+    userMultiplied: false
+  elements:
+  - name: 100 concurrent calls
+  - name: 5,000 calls/day
+  - name: 15 voice clones
+  - name: 100 knowledge bases
+- id: bland-ai-enterprise
+  name: Enterprise
+  type: enterprise
+  description: Custom contracts with volume discounts, dedicated infrastructure, and 24/7 support.
+  entries:
+  - label: Enterprise Contract
+    name: enterprise
+    type: flat
+    metric: contract
+    limit: -1
+    timeFrame: annual
+    geo: global
+    unit: 1
+    price: contact sales
+    userMultiplied: false
+  elements:
+  - name: Unlimited concurrent calls
+  - name: Unlimited daily calls
+  - name: Dedicated infrastructure
+  - name: 24/7 support
+- id: bland-ai-trial
+  name: Free Trial
+  type: free
+  description: Two free credits and a free inbound number (~$15/month value) for new accounts.
+  entries:
+  - label: Trial Credits
+    name: trial_credits
+    type: flat
+    metric: credit
+    limit: 2
+    timeFrame: trial
+    geo: global
+    unit: 1
+    price: 0 USD
+    userMultiplied: false
+  elements:
+  - name: Free inbound phone number during trial
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
