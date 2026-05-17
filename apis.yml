@@ -1,7 +1,7 @@
 aid: bland-ai
 url: https://raw.githubusercontent.com/api-evangelist/bland-ai/refs/heads/main/apis.yml
 name: Bland AI
-x-type: company
+kind: company
 description: >-
   Bland AI is an enterprise-grade conversational voice AI platform for inbound and outbound
   phone agents. The Bland REST API covers calls, pathways (conversation graphs), voices and
