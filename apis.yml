@@ -42,6 +42,8 @@ apis:
       - type: LLMsTxt
         url: https://docs.bland.ai/llms.txt
 common:
+  - type: LinkedIn
+    url: https://www.linkedin.com/company/bland-ai
   - type: Website
     url: https://www.bland.ai/
   - type: Documentation
