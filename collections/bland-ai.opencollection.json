@@ -1,0 +1,158 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Bland AI Platform API",
+    "version": "1"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "authorization",
+      "value": "{{authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Calls",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List calls",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.bland.ai/v1/calls",
+            "params": [
+              {
+                "name": "from_number",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "to_number",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "from",
+                "value": "",
+                "type": "query",
+                "description": "Pagination start index."
+              },
+              {
+                "name": "to",
+                "value": "",
+                "type": "query",
+                "description": "Pagination end index."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "start_date",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "end_date",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "completed",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "batch_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "campaign_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "duration_gt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "duration_lt",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "List calls"
+        },
+        {
+          "info": {
+            "name": "Send a call",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.bland.ai/v1/calls",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Initiate an outbound AI phone call."
+        },
+        {
+          "info": {
+            "name": "Get call details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.bland.ai/v1/calls/:call_id",
+            "headers": [
+              {
+                "name": "encrypted_key",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "call_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get call details"
+        },
+        {
+          "info": {
+            "name": "Stop an active call",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.bland.ai/v1/calls/:call_id/stop",
+            "params": [
+              {
+                "name": "call_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Stop an active call"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
