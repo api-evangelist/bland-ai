@@ -6,7 +6,7 @@ description: >-
   Bland AI is an enterprise-grade conversational voice AI platform for inbound and outbound
   phone agents. The Bland REST API covers calls, pathways (conversation graphs), voices and
   voice cloning, personas, tools, knowledge bases, dynamic data, transfer lists, and webhooks.
-image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 tags:
   - AI
   - Voice
@@ -23,7 +23,7 @@ apis:
       REST API for sending and managing AI phone calls, pathways (conversation flows), voices
       and voice clones, personas, tools, knowledge bases, transfer lists, and analytics. Auth
       is bearer token; base URL is https://api.bland.ai.
-    image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
     humanURL: https://docs.bland.ai/
     baseURL: https://api.bland.ai
     tags:
