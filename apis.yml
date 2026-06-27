@@ -35,11 +35,11 @@ apis:
     properties:
       - type: Documentation
         url: https://docs.bland.ai/
-      - type: SignUp
+      - type: Signup
         url: https://app.bland.ai/
       - type: Pricing
         url: https://www.bland.ai/pricing
-      - type: LLMsTxt
+      - type: LlmsText
         url: https://docs.bland.ai/llms.txt
 common:
   - type: GitHubOrganization
