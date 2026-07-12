@@ -1,0 +1,16 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/bland-ai-openapi.yml
+summary:
+  types:
+  - apiKey
+  api_key_in:
+  - header
+schemes:
+- name: apiKey
+  type: apiKey
+  in: header
+  parameter: authorization
+  description: Bland API key supplied as the raw value of the `authorization` header.
+  sources:
+  - openapi/bland-ai-openapi.yml
