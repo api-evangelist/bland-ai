@@ -42,6 +42,8 @@ apis:
       - type: LlmsText
         url: https://docs.bland.ai/llms.txt
 common:
+  - type: AgenticAccess
+    url: agentic-access/bland-ai-agentic-access.yml
   - type: VulnerabilityDisclosure
     url: security/bland-ai-vulnerability-disclosure.yml
   - type: DomainSecurity
