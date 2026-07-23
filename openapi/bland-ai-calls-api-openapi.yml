@@ -1,26 +1,31 @@
 openapi: 3.1.0
 info:
-  title: Bland AI Platform API
-  description: |
-    REST API for the Bland enterprise voice AI platform. Send and manage
+  title: Bland AI Platform Calls API
+  description: 'REST API for the Bland enterprise voice AI platform. Send and manage
+
     AI phone calls, list call history, fetch call details (transcripts,
+
     recordings, analysis), and stop active or scheduled calls. All
+
     requests require the `authorization` header set to your API key.
-  version: "1"
+
+    '
+  version: '1'
   contact:
     name: Bland AI
     url: https://docs.bland.ai
 servers:
-  - url: https://api.bland.ai
+- url: https://api.bland.ai
 security:
-  - apiKey: []
+- apiKey: []
 tags:
-  - name: Calls
-    description: Send, list, retrieve, and stop AI phone calls.
+- name: Calls
+  description: Send, list, retrieve, and stop AI phone calls.
 paths:
   /v1/calls:
     post:
-      tags: [Calls]
+      tags:
+      - Calls
       summary: Send a call
       description: Initiate an outbound AI phone call.
       operationId: sendCall
@@ -38,63 +43,64 @@ paths:
               schema:
                 $ref: '#/components/schemas/SendCallResponse'
     get:
-      tags: [Calls]
+      tags:
+      - Calls
       summary: List calls
       operationId: listCalls
       parameters:
-        - in: query
-          name: from_number
-          schema:
-            type: string
-        - in: query
-          name: to_number
-          schema:
-            type: string
-        - in: query
-          name: from
-          schema:
-            type: integer
-          description: Pagination start index.
-        - in: query
-          name: to
-          schema:
-            type: integer
-          description: Pagination end index.
-        - in: query
-          name: limit
-          schema:
-            type: integer
-            default: 1000
-        - in: query
-          name: start_date
-          schema:
-            type: string
-            format: date
-        - in: query
-          name: end_date
-          schema:
-            type: string
-            format: date
-        - in: query
-          name: completed
-          schema:
-            type: boolean
-        - in: query
-          name: batch_id
-          schema:
-            type: string
-        - in: query
-          name: campaign_id
-          schema:
-            type: string
-        - in: query
-          name: duration_gt
-          schema:
-            type: number
-        - in: query
-          name: duration_lt
-          schema:
-            type: number
+      - in: query
+        name: from_number
+        schema:
+          type: string
+      - in: query
+        name: to_number
+        schema:
+          type: string
+      - in: query
+        name: from
+        schema:
+          type: integer
+        description: Pagination start index.
+      - in: query
+        name: to
+        schema:
+          type: integer
+        description: Pagination end index.
+      - in: query
+        name: limit
+        schema:
+          type: integer
+          default: 1000
+      - in: query
+        name: start_date
+        schema:
+          type: string
+          format: date
+      - in: query
+        name: end_date
+        schema:
+          type: string
+          format: date
+      - in: query
+        name: completed
+        schema:
+          type: boolean
+      - in: query
+        name: batch_id
+        schema:
+          type: string
+      - in: query
+        name: campaign_id
+        schema:
+          type: string
+      - in: query
+        name: duration_gt
+        schema:
+          type: number
+      - in: query
+        name: duration_lt
+        schema:
+          type: number
       responses:
         '200':
           description: Paginated list of calls.
@@ -113,21 +119,22 @@ paths:
                       $ref: '#/components/schemas/CallSummary'
   /v1/calls/{call_id}:
     get:
-      tags: [Calls]
+      tags:
+      - Calls
       summary: Get call details
       operationId: getCall
       parameters:
-        - in: path
-          name: call_id
-          required: true
-          schema:
-            type: string
-        - in: header
-          name: encrypted_key
-          required: false
-          schema:
-            type: string
-          description: Optional encrypted Twilio account key for filtering.
+      - in: path
+        name: call_id
+        required: true
+        schema:
+          type: string
+      - in: header
+        name: encrypted_key
+        required: false
+        schema:
+          type: string
+        description: Optional encrypted Twilio account key for filtering.
       responses:
         '200':
           description: Full call detail including transcript and summary.
@@ -137,15 +144,16 @@ paths:
                 $ref: '#/components/schemas/CallDetail'
   /v1/calls/{call_id}/stop:
     post:
-      tags: [Calls]
+      tags:
+      - Calls
       summary: Stop an active call
       operationId: stopCall
       parameters:
-        - in: path
-          name: call_id
-          required: true
-          schema:
-            type: string
+      - in: path
+        name: call_id
+        required: true
+        schema:
+          type: string
       responses:
         '200':
           description: Stop acknowledged.
@@ -154,21 +162,32 @@ paths:
               schema:
                 $ref: '#/components/schemas/StatusResponse'
 components:
-  securitySchemes:
-    apiKey:
-      type: apiKey
-      in: header
-      name: authorization
-      description: Bland API key supplied as the raw value of the `authorization` header.
   schemas:
+    SendCallResponse:
+      type: object
+      properties:
+        status:
+          type: string
+          enum:
+          - success
+          - error
+        call_id:
+          type: string
+        message:
+          type: string
+        errors:
+          type: array
+          items:
+            type: string
     SendCallRequest:
       type: object
-      required: [phone_number]
+      required:
+      - phone_number
       properties:
         phone_number:
           type: string
           description: E.164-formatted destination number.
-          example: "+15551234567"
+          example: '+15551234567'
         task:
           type: string
           description: Instructions and example flow for the agent. Required if `pathway_id` is not set.
@@ -193,44 +212,16 @@ components:
         metadata:
           type: object
           additionalProperties: true
-    SendCallResponse:
+    StatusResponse:
       type: object
       properties:
         status:
           type: string
-          enum: [success, error]
-        call_id:
-          type: string
+          enum:
+          - success
+          - error
         message:
           type: string
-        errors:
-          type: array
-          items:
-            type: string
-    CallSummary:
-      type: object
-      properties:
-        call_id:
-          type: string
-        created_at:
-          type: string
-          format: date-time
-        call_length:
-          type: number
-        to:
-          type: string
-        from:
-          type: string
-        completed:
-          type: boolean
-        answered_by:
-          type: string
-        batch_id:
-          type: string
-          nullable: true
-        campaign_id:
-          type: string
-          nullable: true
     CallDetail:
       type: object
       properties:
@@ -275,11 +266,33 @@ components:
           additionalProperties: true
         price:
           type: number
-    StatusResponse:
+    CallSummary:
       type: object
       properties:
-        status:
+        call_id:
           type: string
-          enum: [success, error]
-        message:
+        created_at:
           type: string
+          format: date-time
+        call_length:
+          type: number
+        to:
+          type: string
+        from:
+          type: string
+        completed:
+          type: boolean
+        answered_by:
+          type: string
+        batch_id:
+          type: string
+          nullable: true
+        campaign_id:
+          type: string
+          nullable: true
+  securitySchemes:
+    apiKey:
+      type: apiKey
+      in: header
+      name: authorization
+      description: Bland API key supplied as the raw value of the `authorization` header.
