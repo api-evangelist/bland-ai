@@ -2,13 +2,20 @@
   "repo": "bland-ai",
   "feeds": [
     {
+      "source": "https://www.bland.ai/blog/feed.xml",
+      "feed_url": "https://www.bland.ai/blog/feed.xml",
+      "title": "",
+      "saved": 0,
+      "method": "feed"
+    },
+    {
       "source": "https://www.bland.ai/blog",
       "feed_url": "https://www.bland.ai/blog/feed.xml",
       "title": "",
-      "saved": 22,
+      "saved": 0,
       "method": "discovered"
     }
   ],
-  "fetched": "2026-07-11T11:50:51Z",
-  "post_count": 26
+  "fetched": "2026-08-01T15:49:00Z",
+  "post_count": 62
 }

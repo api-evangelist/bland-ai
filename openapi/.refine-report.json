@@ -1,0 +1,14 @@
+{
+  "provider": "bland-ai",
+  "sources": [
+    "bland-ai-calls-api-openapi.yml"
+  ],
+  "outputs": [
+    "bland-ai-calls-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
