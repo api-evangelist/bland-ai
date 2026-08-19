@@ -1,0 +1,543 @@
+{
+  "item": [
+    {
+      "id": "14514f7c-295d-4fe2-ad7a-eff2d8a621cd",
+      "name": "Calls",
+      "description": {
+        "content": "Send, list, retrieve, and stop AI phone calls.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "797db92f-8515-43dd-9d07-34cc8b8b85db",
+          "name": "Send a call",
+          "request": {
+            "name": "Send a call",
+            "description": {
+              "content": "Initiate an outbound AI phone call.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "calls"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"phone_number\": \"<string>\",\n  \"task\": \"<string>\",\n  \"pathway_id\": \"<string>\",\n  \"voice\": \"<string>\",\n  \"from\": \"<string>\",\n  \"first_sentence\": \"<string>\",\n  \"wait_for_greeting\": \"<boolean>\",\n  \"record\": \"<boolean>\",\n  \"max_duration\": \"<integer>\",\n  \"webhook\": \"<uri>\",\n  \"metadata\": {\n    \"key_0\": true\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "7e09da69-057b-4cf8-bad9-14f1e46dc08c",
+              "name": "Call accepted.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "calls"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"phone_number\": \"+15551234567\",\n  \"task\": \"<string>\",\n  \"pathway_id\": \"<string>\",\n  \"voice\": \"<string>\",\n  \"from\": \"<string>\",\n  \"first_sentence\": \"<string>\",\n  \"wait_for_greeting\": \"<boolean>\",\n  \"record\": \"<boolean>\",\n  \"max_duration\": \"<integer>\",\n  \"webhook\": \"<uri>\",\n  \"metadata\": {\n    \"key_0\": 9221.772576553954,\n    \"key_1\": \"string\",\n    \"key_2\": 984.0756412700857\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"success\",\n  \"call_id\": \"string\",\n  \"message\": \"string\",\n  \"errors\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6937bd4b-06ff-4365-9e21-b96d425abc1d",
+          "name": "List calls",
+          "request": {
+            "name": "List calls",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "calls"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "from_number",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "to_number",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "from",
+                  "value": "<integer>",
+                  "description": "Pagination start index."
+                },
+                {
+                  "disabled": false,
+                  "key": "to",
+                  "value": "<integer>",
+                  "description": "Pagination end index."
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "1000"
+                },
+                {
+                  "disabled": false,
+                  "key": "start_date",
+                  "value": "<date>"
+                },
+                {
+                  "disabled": false,
+                  "key": "end_date",
+                  "value": "<date>"
+                },
+                {
+                  "disabled": false,
+                  "key": "completed",
+                  "value": "<boolean>"
+                },
+                {
+                  "disabled": false,
+                  "key": "batch_id",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "campaign_id",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "duration_gt",
+                  "value": "<number>"
+                },
+                {
+                  "disabled": false,
+                  "key": "duration_lt",
+                  "value": "<number>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7af5f469-dea4-4dab-b2ff-61d8dd822ba1",
+              "name": "Paginated list of calls.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "calls"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "from_number",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "to_number",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "1000"
+                    },
+                    {
+                      "key": "start_date",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "end_date",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "completed",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "batch_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "campaign_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "duration_gt",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "duration_lt",
+                      "value": "<number>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"total_count\": 2686,\n  \"count\": 8745,\n  \"calls\": [\n    {\n      \"call_id\": \"string\",\n      \"created_at\": \"1987-03-04T04:32:03.206Z\",\n      \"call_length\": 6948.2150918504,\n      \"to\": \"string\",\n      \"from\": \"string\",\n      \"completed\": false,\n      \"answered_by\": \"string\",\n      \"batch_id\": \"string\",\n      \"campaign_id\": \"string\"\n    },\n    {\n      \"call_id\": \"string\",\n      \"created_at\": \"1950-03-10T22:27:19.215Z\",\n      \"call_length\": 1909.3418297754984,\n      \"to\": \"string\",\n      \"from\": \"string\",\n      \"completed\": true,\n      \"answered_by\": \"string\",\n      \"batch_id\": \"string\",\n      \"campaign_id\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1e4b9a68-1e1d-467c-a44f-411c7d393580",
+          "name": "Get call details",
+          "request": {
+            "name": "Get call details",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "calls",
+                ":call_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "call_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "Optional encrypted Twilio account key for filtering.",
+                "key": "encrypted_key",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "01e9fc95-9dab-4c66-9f65-e3776f22aad7",
+              "name": "Full call detail including transcript and summary.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "calls",
+                    ":call_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "call_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Optional encrypted Twilio account key for filtering.",
+                    "key": "encrypted_key",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"call_id\": \"string\",\n  \"status\": \"string\",\n  \"created_at\": \"1996-04-17T08:13:08.125Z\",\n  \"call_length\": 3093.847776297404,\n  \"to\": \"string\",\n  \"from\": \"string\",\n  \"completed\": false,\n  \"summary\": \"string\",\n  \"transcripts\": [\n    {\n      \"user\": \"string\",\n      \"text\": \"string\",\n      \"created_at\": \"1954-03-30T03:34:01.499Z\"\n    },\n    {\n      \"user\": \"string\",\n      \"text\": \"string\",\n      \"created_at\": \"1948-08-10T03:10:31.231Z\"\n    }\n  ],\n  \"recording_url\": \"http://tFalhepHzOgaX.mxwqQ5UffzO3IC86BQCfqZqSoUDGL16ad93eBRvP+dZLeMstGMrfC3g4WZd5L1Gp\",\n  \"analysis\": {\n    \"key_0\": \"string\",\n    \"key_1\": 7407.506651934414\n  },\n  \"variables\": {\n    \"key_0\": 5667,\n    \"key_1\": true\n  },\n  \"price\": 6900.269706389137\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a9966809-5be0-4ec6-99ae-1209bf2b4985",
+          "name": "Stop an active call",
+          "request": {
+            "name": "Stop an active call",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "calls",
+                ":call_id",
+                "stop"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "call_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "2f6af7cd-4a75-4574-8543-aad102b132dd",
+              "name": "Stop acknowledged.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "calls",
+                    ":call_id",
+                    "stop"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "call_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"success\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.bland.ai",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "352ae96e-dc63-4631-be67-611718003042",
+    "name": "Bland AI Platform Calls API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "REST API for the Bland enterprise voice AI platform. Send and manage\nAI phone calls, list call history, fetch call details (transcripts,\nrecordings, analysis), and stop active or scheduled calls. All\nrequests require the `authorization` header set to your API key.\n\n\nContact Support:\n Name: Bland AI",
+      "type": "text/plain"
+    }
+  }
+}
