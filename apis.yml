@@ -6,6 +6,18 @@ description: >-
   Bland AI is an enterprise-grade conversational voice AI platform for inbound and outbound
   phone agents. The Bland REST API covers calls, pathways (conversation graphs), voices and
   voice cloning, personas, tools, knowledge bases, dynamic data, transfer lists, and webhooks.
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: true
+  label: Hosted service · you call their endpoint
+  confidence: high
+  source:
+  - openapi
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: freemium
   onboarding: self-serve
