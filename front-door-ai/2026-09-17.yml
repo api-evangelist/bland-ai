@@ -1,0 +1,26 @@
+# Front Door AI Index — bland-ai — 2026-09-17
+# AI vocabulary counted on the provider's root page. Generated; do not edit.
+# `score` is null unless ownership is `own` — see front_door_ai.py.
+front_door_ai:
+  slug: bland-ai
+  lexicon_version: '1.0'
+  probed_at: '2026-09-17'
+  host: www.bland.ai
+  final_host: www.bland.ai
+  ownership: own
+  owner: bland-ai
+  shares_host_with: null
+  inherited_from: null
+  verdict: scored
+  score: 20
+  host_score: 20
+  density: 16.65
+  words: 1201
+  tiers:
+    agentic: 0
+    core: 20
+    model: 0
+  ambiguous: 25
+  top_terms:
+    agent: 25
+    AI: 20

@@ -1,4 +1,4 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
   title: Bland AI Platform Calls API
   description: 'REST API for the Bland enterprise voice AI platform. Send and manage
@@ -7,9 +7,7 @@ info:
 
     recordings, analysis), and stop active or scheduled calls. All
 
-    requests require the `authorization` header set to your API key.
-
-    '
+    requests require the `authorization` header set to your API key.'
   version: '1'
   contact:
     name: Bland AI
@@ -163,22 +161,6 @@ paths:
                 $ref: '#/components/schemas/StatusResponse'
 components:
   schemas:
-    SendCallResponse:
-      type: object
-      properties:
-        status:
-          type: string
-          enum:
-          - success
-          - error
-        call_id:
-          type: string
-        message:
-          type: string
-        errors:
-          type: array
-          items:
-            type: string
     SendCallRequest:
       type: object
       required:
@@ -212,16 +194,6 @@ components:
         metadata:
           type: object
           additionalProperties: true
-    StatusResponse:
-      type: object
-      properties:
-        status:
-          type: string
-          enum:
-          - success
-          - error
-        message:
-          type: string
     CallDetail:
       type: object
       properties:
@@ -290,6 +262,32 @@ components:
         campaign_id:
           type: string
           nullable: true
+    StatusResponse:
+      type: object
+      properties:
+        status:
+          type: string
+          enum:
+          - success
+          - error
+        message:
+          type: string
+    SendCallResponse:
+      type: object
+      properties:
+        status:
+          type: string
+          enum:
+          - success
+          - error
+        call_id:
+          type: string
+        message:
+          type: string
+        errors:
+          type: array
+          items:
+            type: string
   securitySchemes:
     apiKey:
       type: apiKey
