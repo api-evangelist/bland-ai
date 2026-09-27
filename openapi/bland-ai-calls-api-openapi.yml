@@ -161,6 +161,32 @@ paths:
                 $ref: '#/components/schemas/StatusResponse'
 components:
   schemas:
+    SendCallResponse:
+      type: object
+      properties:
+        status:
+          type: string
+          enum:
+          - success
+          - error
+        call_id:
+          type: string
+        message:
+          type: string
+        errors:
+          type: array
+          items:
+            type: string
+    StatusResponse:
+      type: object
+      properties:
+        status:
+          type: string
+          enum:
+          - success
+          - error
+        message:
+          type: string
     SendCallRequest:
       type: object
       required:
@@ -194,6 +220,30 @@ components:
         metadata:
           type: object
           additionalProperties: true
+    CallSummary:
+      type: object
+      properties:
+        call_id:
+          type: string
+        created_at:
+          type: string
+          format: date-time
+        call_length:
+          type: number
+        to:
+          type: string
+        from:
+          type: string
+        completed:
+          type: boolean
+        answered_by:
+          type: string
+        batch_id:
+          type: string
+          nullable: true
+        campaign_id:
+          type: string
+          nullable: true
     CallDetail:
       type: object
       properties:
@@ -238,56 +288,6 @@ components:
           additionalProperties: true
         price:
           type: number
-    CallSummary:
-      type: object
-      properties:
-        call_id:
-          type: string
-        created_at:
-          type: string
-          format: date-time
-        call_length:
-          type: number
-        to:
-          type: string
-        from:
-          type: string
-        completed:
-          type: boolean
-        answered_by:
-          type: string
-        batch_id:
-          type: string
-          nullable: true
-        campaign_id:
-          type: string
-          nullable: true
-    StatusResponse:
-      type: object
-      properties:
-        status:
-          type: string
-          enum:
-          - success
-          - error
-        message:
-          type: string
-    SendCallResponse:
-      type: object
-      properties:
-        status:
-          type: string
-          enum:
-          - success
-          - error
-        call_id:
-          type: string
-        message:
-          type: string
-        errors:
-          type: array
-          items:
-            type: string
   securitySchemes:
     apiKey:
       type: apiKey
