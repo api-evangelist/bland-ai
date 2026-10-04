@@ -161,16 +161,6 @@ paths:
                 $ref: '#/components/schemas/StatusResponse'
 components:
   schemas:
-    StatusResponse:
-      type: object
-      properties:
-        status:
-          type: string
-          enum:
-          - success
-          - error
-        message:
-          type: string
     SendCallRequest:
       type: object
       required:
@@ -248,22 +238,6 @@ components:
           additionalProperties: true
         price:
           type: number
-    SendCallResponse:
-      type: object
-      properties:
-        status:
-          type: string
-          enum:
-          - success
-          - error
-        call_id:
-          type: string
-        message:
-          type: string
-        errors:
-          type: array
-          items:
-            type: string
     CallSummary:
       type: object
       properties:
@@ -288,6 +262,32 @@ components:
         campaign_id:
           type: string
           nullable: true
+    StatusResponse:
+      type: object
+      properties:
+        status:
+          type: string
+          enum:
+          - success
+          - error
+        message:
+          type: string
+    SendCallResponse:
+      type: object
+      properties:
+        status:
+          type: string
+          enum:
+          - success
+          - error
+        call_id:
+          type: string
+        message:
+          type: string
+        errors:
+          type: array
+          items:
+            type: string
   securitySchemes:
     apiKey:
       type: apiKey
