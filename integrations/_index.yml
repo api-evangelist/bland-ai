@@ -62,7 +62,7 @@
     published: '2026-09-04T21:01:06.711Z'
     matched_on: publisher-email
     builder: provider (package published from the provider's own domain)
-  status: pending-generation
+  status: not-a-workflow
   arazzo: null
 - slug: bland-ai-pipedream
   label: Pipedream
@@ -88,5 +88,5 @@
     actions: true
     sources: false
     builder: Pipedream repo (component)
-  status: pending-generation
+  status: not-a-workflow
   arazzo: null
