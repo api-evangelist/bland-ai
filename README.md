@@ -1,4 +1,4 @@
-# Bland AI (bland-ai)
+# Bland AI
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,58 +66,126 @@
 
 Bland AI is an enterprise-grade conversational voice AI platform for inbound and outbound phone agents. The Bland REST API covers calls, pathways (conversation graphs), voices and voice cloning, personas, tools, knowledge bases, dynamic data, transfer lists, and webhooks.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/bland-ai/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/bland-ai/refs/heads/main/apis.yml)
+**Areas:** Artificial Intelligence · Voice · Agents · Phone · Real-Time · Conversational AI · Voice AI · Voice Agents
 
-## Tags
+## Bland AI on APIs.io
 
-- AI
-- Voice
-- Agents
-- Phone
-- Realtime
+Everything profiled for Bland AI is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/bland-ai/](https://apis.io/providers/bland-ai/)** — or go straight to one of the APIs or properties below.
 
-## Timestamps
+### APIs (2)
 
-- **Created:** 2026-05-08
-- **Modified:** 2026-05-08
+- [Bland AI Platform API](https://apis.io/apis/bland-ai/platform/) — REST API for sending and managing AI phone calls, pathways (conversation flows), voices and voice clones, personas, tools, knowledge bases, transfer lists,…
+- [Bland AI Calls API](https://apis.io/apis/bland-ai/bland-ai-calls-api/) — Send, list, retrieve, and stop AI phone calls.
 
-## APIs
+### Published properties
 
-### Bland AI Platform API
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-REST API for sending and managing AI phone calls, pathways (conversation flows), voices and voice clones, personas, tools, knowledge bases, transfer lists, and analytics. Auth is bearer token; base URL is https://api.bland.ai.
+#### MCP servers (1)
 
-- **Human URL:** [https://docs.bland.ai/](https://docs.bland.ai/)
-- **Base URL:** `https://api.bland.ai`
+Model Context Protocol servers that expose the API to agents.
 
-#### Tags
+- [Moved to /providers/bland-ai/](https://apis.io/servers/bland-ai/bland-ai/)
 
-- Voice
-- Agents
-- Calls
-- Pathways
-- Voice Cloning
+#### Agentic access (1)
 
-#### Properties
+Which operations an agent can call, which act, and which need a human in the loop.
 
-- [Documentation](https://docs.bland.ai/)
-- [Sign Up](https://app.bland.ai/)
-- [Pricing](https://www.bland.ai/pricing)
-- [L L Ms Txt](https://docs.bland.ai/llms.txt)
-- [Postman Collection](collections/bland-ai.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/bland-ai.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Bland Ai Agentic Access](https://apis.io/agentic-access/bland-ai/bland-ai-agentic-access/)
 
-## Common Properties
+#### Collections (2)
 
-- [GitHub Organization](https://github.com/Bland-AI)
-- [LinkedIn](https://www.linkedin.com/company/bland-ai)
+Postman and Open Collection request collections.
+
+- [Bland AI Platform API](https://apis.io/collections/bland-ai/open-bland-ai/)
+- [Bland AI Platform Calls API](https://apis.io/collections/bland-ai/open-bland-ai-calls-api/)
+
+#### Security (3)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Bland Ai Authentication](https://apis.io/security/bland-ai/bland-ai-authentication/)
+- [Bland Ai Domain Security](https://apis.io/security/bland-ai/bland-ai-domain-security/)
+- [Bland Ai Vulnerability Disclosure](https://apis.io/security/bland-ai/bland-ai-vulnerability-disclosure/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Bland Ai Plans Pricing](https://apis.io/plans/bland-ai/bland-ai-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Bland Ai Rate Limits](https://apis.io/rate-limits/bland-ai/bland-ai-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Bland Ai Finops](https://apis.io/finops/bland-ai/bland-ai-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
 - [Website](https://www.bland.ai/)
 - [Documentation](https://docs.bland.ai/)
-- [Plans](plans/bland-ai-plans-pricing.yml)
-- [Rate Limits](rate-limits/bland-ai-rate-limits.yml)
-- [Fin Ops](finops/bland-ai-finops.yml)
+- [Blog](https://www.bland.ai/blog)
+- [GitHub](https://github.com/Bland-AI)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Kin Score 32.2** — thin · rubric 0.25.0 · scored 2026-10-23
+
+| Facet | Score |
+|---|---|
+| Discoverability | 75.0 |
+| Contract quality | 47.1 |
+| Contract governance | 0.0 |
+| Operational transparency | 21.1 |
+| Developer ergonomics | 23.8 |
+| Access clarity | 31.6 |
+
+**Agent readiness 28.1** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | verified |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+| Pagination Ratio | na |
+| Operation Distinctiveness | distinct |
+
+**Regulatory alignment 16.4** — AI & Biometrics
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/bland-ai/](https://apis.io/providers/bland-ai/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Bland AI: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/bland-ai/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
